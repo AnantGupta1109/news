@@ -1,8 +1,6 @@
 
 
-document.addEventListener('contextmenu', event => event.preventDefault());document.addEventListener('contextmenu', event => event.preventDefault());document.addEventListener('contextmenu', event => event.preventDefault());
 document.addEventListener('contextmenu', event => event.preventDefault());
-
 const KEY = "391f1d8dd86b48689a422c58e6a6a036";
 const URL = "https://newsapi.org/v2/everything?q=";
 var isSOpen = false;
@@ -34,6 +32,37 @@ async function fetchNews(query) {
         addToData(article);
     });
 
+
+
+
+    
+
+}
+
+function ads(n){
+        // Create a new div element
+        const newDiv = document.createElement('div');
+        newDiv.innerHTML = `<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7638485489463291"
+                                crossorigin="anonymous"></script>
+                            <ins class="adsbygoogle"
+                                style="display:block"
+                                data-ad-format="fluid"
+                                data-ad-layout-key="-5l+c4-2c-69+z5"
+                                data-ad-client="ca-pub-7638485489463291"
+                                data-ad-slot="5846227853"></ins>
+                            <script>
+                                (adsbygoogle = window.adsbygoogle || []).push({});
+                            </script>`; // Set the text content of the new div
+
+                            
+        newDiv.className = 'card'; // Add a class if needed
+
+        // Insert the new div after the nth child
+        if (document.querySelector(".card-container").children[n].nextSibling) {
+            document.querySelector(".card-container").insertBefore(newDiv,document.querySelector(".card-container").children[n].nextSibling);
+        } else {
+            document.querySelector(".card-container").appendChild(newDiv); // If nth element is the last child, append
+        }
 }
 
 function addToData(article) {
@@ -63,9 +92,12 @@ function addToData(article) {
 
     // Append the card to a container (you'll need to have a container in your HTML)
     document.querySelector(".card-container").appendChild(card);
+
+
+
 }
 
-//window.addEventListener("load", () => fetchNews("India"));
+window.addEventListener("load", () => fetchNews("India"));
 changeSelection(india)
 
 function changeSelection(wh) {
@@ -151,3 +183,4 @@ function closeSearchBar(){
     isSOpen = false;
 
 }
+
