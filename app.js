@@ -1,5 +1,3 @@
-
-
 const KEY = "391f1d8dd86b48689a422c58e6a6a036";
 const URL = "https://newsapi.org/v2/everything?q=";
 var isSOpen = false;
